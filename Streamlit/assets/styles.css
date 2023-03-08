@@ -1,0 +1,91 @@
+.navbar{
+    font-size: 25px;
+    font-family: 'Klavika', sans-serif;
+    position: fixed;
+    width: 100%;
+    background: #f8f9fa!important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 100px;
+    padding-right: 100px;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.navitem{
+    float: left;
+    display: block;
+    color: #333!important;
+    text-align: center;
+    padding: 20px 20px;
+    text-decoration: none!important;
+    border-bottom: 2px solid transparent;
+    font-size: 14px;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.navitem:hover{
+    height: 55px !important;
+}
+
+.settings{
+    height: 1rem;
+}
+
+.version-span{
+    color: white;
+    position: absolute;
+    right: 1rem;
+    bottom: 1.75rem;
+    opacity: 0.5;
+    z-index: 9999;
+    border: 2px solid #333;
+    border-radius: 25px;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    background: #333;
+}
+
+.iframe{
+    height: 0rem;
+}
+
+.dropdown{
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn{
+    border: none;
+    outline: none;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a{
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover{
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+}
