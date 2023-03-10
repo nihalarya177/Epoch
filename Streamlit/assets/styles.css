@@ -24,6 +24,7 @@
     border-bottom: 2px solid transparent;
     font-size: 14px;
     font-family: 'Trebuchet MS', sans-serif;
+    padding-left: 25px;
 }
 
 .navitem:hover{

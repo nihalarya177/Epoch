@@ -29,19 +29,8 @@ def navbar_component():
     component = rf'''
             <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navbar">
                 <ul class="navlist">
-                <img src="/assets/images/icon_for_sidebar" width="50" height="60">
-                <a class="navitem"><b>Epoch Solution</b></a>
-                {navbar_items}
-                <div class="dropdown navitem">
-                    <button class="dropbtn">Mechanical
-                    <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                    <a target="_self" href="/?nav=mechanical-loading">Data Loading</a>
-                    <a target="_self" href="/?nav=mechanical-extraction">Data Extraction</a>
-                    <a target="_self" href="/?nav=mechanical-weibull-lognormal">Weibull & Log-normal</a>
-                    </div>
-                </div>
+                    <a class="navitem"><b>UsableAI</b></a>
+                    {navbar_items}
                 </ul>
             </nav>
             '''

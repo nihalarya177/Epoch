@@ -1,7 +1,7 @@
 import streamlit as st
 import myutils as utl
 # Files to be imported from views folder for 
-from views import data_loading
+from views import data_loading, unsupervised_analysis, supervised_analysis
 
 #st.set_page_config(layout="wide", page_title="Epoch Solution")
 
@@ -14,20 +14,10 @@ def navigation():
     route = utl.get_current_route()
     if route == "data-loading":
         data_loading.load_view()
-    '''elif route == "mechanical-extraction":
-        mechanical_extraction.load_view()
-    elif route == "mechanical-loading":
-        mechanical_loading.load_view()
-    elif route == "mechanical-weibull-lognormal":
-        mechanical_weibull_lognormal.load_view()
-    elif route == "bltc":
-        bltc.load_view()
-    elif route == "options":
-        options.load_view()
-    elif route == "configuration":
-        configuration.load_view()
-    elif route == None:
-        data_loading.load_view()'''
+    elif route == "unsupervised-analysis":
+        unsupervised_analysis.load_view()
+    elif route == "supervised-analysis":
+        supervised_analysis.load_view()
     
     st.markdown("""
         <style>
