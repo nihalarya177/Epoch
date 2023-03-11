@@ -1,0 +1,20 @@
+11-03-2023 23:51:19.35 - INFO - Started validation of input parameters...
+11-03-2023 23:51:19.35 - INFO - Completed validation of input parameters
+11-03-2023 23:51:19.35 - INFO - Started handling of duplicates... Method: "AUTO"
+11-03-2023 23:51:19.35 - DEBUG - Deletion of 1 duplicate(s) succeeded
+11-03-2023 23:51:19.35 - INFO - Completed handling of duplicates in 0.000755 seconds
+11-03-2023 23:51:19.35 - INFO - Skipped handling of missing values
+11-03-2023 23:51:19.35 - INFO - Started handling of outliers... Method: "WINZ"
+11-03-2023 23:51:19.36 - DEBUG - Outlier imputation of 4 value(s) succeeded for feature "sepal width (cm)"
+11-03-2023 23:51:19.36 - INFO - Completed handling of outliers in 0.007283 seconds
+11-03-2023 23:51:19.36 - INFO - Started conversion of DATETIME features... Granularity: s
+11-03-2023 23:51:19.36 - INFO - Completed conversion of DATETIME features in 0.0001 seconds
+11-03-2023 23:51:19.36 - INFO - Skipped encoding of categorical features
+11-03-2023 23:51:19.36 - INFO - Started feature type conversion...
+11-03-2023 23:51:19.36 - DEBUG - Conversion to type FLOAT succeeded for feature "sepal length (cm)"
+11-03-2023 23:51:19.36 - DEBUG - Conversion to type FLOAT succeeded for feature "sepal width (cm)"
+11-03-2023 23:51:19.36 - DEBUG - Conversion to type FLOAT succeeded for feature "petal length (cm)"
+11-03-2023 23:51:19.36 - DEBUG - Conversion to type FLOAT succeeded for feature "petal width (cm)"
+11-03-2023 23:51:19.37 - DEBUG - Conversion to type INT succeeded for feature "target"
+11-03-2023 23:51:19.37 - INFO - Completed feature type conversion for 5 feature(s) in 0.005428 seconds
+11-03-2023 23:51:19.37 - INFO - AutoClean process completed in 0.022766 seconds
