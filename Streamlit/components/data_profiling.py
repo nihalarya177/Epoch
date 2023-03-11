@@ -6,7 +6,7 @@ def get_data_profile_report(data, **kwargs):
         data,
         dark_mode=True,
         title="Data Profile Report",
-        html={"navbar_show": False},
+        html={"navbar_show": False, "full_width": True},
         **kwargs
     )
 

@@ -14,7 +14,16 @@ def auto_clean(df: pd.DataFrame, **kwargs) -> pd.DataFrame:
     Args:
         df (pd.Datafrmae)
     """
-    pipeline = AutoClean(df)
+    pipeline = AutoClean(
+        df,
+        "manual",
+        duplicates="auto",
+        missing_num=False,
+        missing_categ=False,
+        outliers="winz",
+        encode_categ=False,
+        extract_datetime="D",
+    )
     return pipeline.output
 
 
@@ -103,6 +112,10 @@ def bin_numeric_columns(df: pd.DataFrame):
                 counter = counter + 1
         df[c] = pd.Series(col_cleaned)
     return df
+
+
+def downsampler(df: pd.DataFrame):
+    ...
 
 
 class PreprocessPipeline:

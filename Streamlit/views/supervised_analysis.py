@@ -32,7 +32,7 @@ def load_view():
             classifier.fit(x, y)
             st.table(classifier.rules)
             # summarizing the rules
-            # resp = get_openai_response(
-            #     f"Kindly summarise the inferences from the association rules provided below. Explain each association rule separately and do not add technical jargon to the response. The response should be understandable by a child. \n \n {classifier.rules.drop(columns=['sup','rsup','err','maj']).rename(columns={'acc':'accuracy'}).reset_index(drop=True).__str__()}"
-            # )
+            resp = get_openai_response(
+                f"Kindly summarise the inferences from the association rules provided below. Explain each association rule separately and do not add technical jargon to the response. The response should be understandable by a child. \n \n {classifier.rules.drop(columns=['sup','rsup','err','maj']).rename(columns={'acc':'accuracy'}).reset_index(drop=True).__str__()}"
+            )
             st.text(resp.choices[0].text)
