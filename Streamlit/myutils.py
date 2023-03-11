@@ -1,43 +1,46 @@
 import streamlit as st
 import base64
 from streamlit.components.v1 import html
-
+import sys
 from PATHS import NAVBAR_PATHS, SETTINGS
 
+
 def inject_custom_css():
-    with open('assets/styles.css') as f:
-        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    with open("Streamlit/assets/styles.css") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
 
 def get_current_route():
     try:
-        return st.experimental_get_query_params()['nav'][0]
+        return st.experimental_get_query_params()["nav"][0]
     except:
         return None
 
+
 def navbar_component():
-    with open("assets/images/icon_for_sidebar.jpeg", "rb") as image_file:
+    with open("Streamlit/assets/images/icon_for_sidebar.jpeg", "rb") as image_file:
         image_as_base64 = base64.b64encode(image_file.read())
 
-    navbar_items = ''
+    navbar_items = ""
     for key, value in NAVBAR_PATHS.items():
-        navbar_items += (f'<a class="navitem" href="/?nav={value}">{key}</a>')
+        navbar_items += f'<a class="navitem" href="/?nav={value}">{key}</a>'
 
-    settings_items = ''
+    settings_items = ""
     for key, value in SETTINGS.items():
-        settings_items+= (f'<a href="/?nav={value}" class="settingsNav">{key}</a>')
+        settings_items += f'<a href="/?nav={value}" class="settingsNav">{key}</a>'
 
-    component = rf'''
+    component = rf"""
             <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navbar">
                 <ul class="navlist">
                     <a class="navitem"><b>UsableAI</b></a>
                     {navbar_items}
                 </ul>
             </nav>
-            '''
-    
+            """
+
     st.markdown(component, unsafe_allow_html=True)
 
-    js = '''
+    js = """
     <script>
         // navbar elements
         var navigationTabs = window.parent.document.getElementsByClassName("navitem");
@@ -69,5 +72,5 @@ def navbar_component():
             cleanSettings(settingsNavs[i]);
         }
     </script>
-    '''
+    """
     html(js)
