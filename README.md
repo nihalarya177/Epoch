@@ -1,8 +1,9 @@
-# Epoch's Usable AI - Data-driven insights for everyone, not just for data scientists.
+# Epoch's Usable AI 
+Data-driven insights for everyone, not just for data scientists.
 
 ## Try it Out
-Stramlit Application:
-Video Demo: 
+* Stramlit Application:
+* Video Demo: 
 
 ## Inspiration
 Our project derives inspiration from the **Stanford DAWN** project, which popularized the term "Usable AI"- an approach to Machine Learning which focuses on delivering interpretable insights to non-technical stakeholders over performance metrics like accuracy.
