@@ -23,7 +23,7 @@ def auto_clean(df: pd.DataFrame, **kwargs) -> pd.DataFrame:
         missing_categ=False,
         outliers="winz",
         encode_categ=False,
-        extract_datetime="D",
+        extract_datetime=False,
     )
     return pipeline.output
 
@@ -85,7 +85,6 @@ def binit(ser: pd.Series, MAXCAT: int) -> (pd.Series, object):
         if thresh > 0.8:
             opt = k
             break
-
     jnb = JenksNaturalBreaks(opt)
     arr = np.array(ser)
     jnb.fit(arr)
@@ -94,25 +93,52 @@ def binit(ser: pd.Series, MAXCAT: int) -> (pd.Series, object):
     ans = []
     for i in lab:
         ans = ans + [breaks[i] + "< " + ser.name + " <" + breaks[i + 1]]
-    return (pd.Series(ans), jnb)
+    return (pd.Series(ans, index=ser.index), jnb)
+
+
+def process(data, name) -> (pd.Series, object):
+    var = data[name]
+    var_notna = var[var.notna()]
+    var_, jnb_ = binit(var_notna, 10)
+    var_cleaned = []
+    counter = 0
+    for i in range(len(var)):
+        if pd.notna(list(var.index)[i]):
+            var_cleaned += [var_[list(var_.index)[i - counter]]]
+        else:
+            var_cleaned += [None]
+            counter = counter + 1
+    return (pd.Series(var_cleaned, name=name, index=data.index), jnb_)
+
+
+# def bin_numeric_columns(df: pd.DataFrame):
+#     for c in df:
+#         col = df[c]
+
+#         col_notna = col[col.notna()]
+#         col_, jnb_ = binit(col_notna, 10)
+
+
+#         col_cleaned = []
+#         counter = 0
+#         for i in range(len(col)):
+#             if pd.notna(col[i]):
+#                 col_cleaned += [col_[i - counter]]
+#             else:
+#                 col_cleaned += [None]
+#                 counter = counter + 1
+#         df[c] = pd.Series(col_cleaned)
+#     return df
 
 
 def bin_numeric_columns(df: pd.DataFrame):
+    jnb = {}
     for c in df:
         col = df[c]
-        col_notna = col[col.notna()]
-        col_, jnb_ = binit(col_notna, 10)
-
-        col_cleaned = []
-        counter = 0
-        for i in range(len(col)):
-            if pd.notna(col[i]):
-                col_cleaned += [col_[i - counter]]
-            else:
-                col_cleaned += [None]
-                counter = counter + 1
-        df[c] = pd.Series(col_cleaned)
-    return df
+        col_, jnb_ = process(df, name=c)
+        df[c] = col_
+        jnb[c] = jnb_
+    return df, jnb
 
 
 def downsampler(df: pd.DataFrame):
@@ -154,9 +180,12 @@ class PreprocessPipeline:
 
     def get_rule_mining_df(self):
         # only return int,float and category columns
+        print(self.cleaned_df.head())
         numeric_df = self.cleaned_df.select_dtypes(include=["number"])
-        numeric_df = bin_numeric_columns(numeric_df)
+        print(numeric_df.head())
+        numeric_df, jnb = bin_numeric_columns(numeric_df)
         cat = self.cleaned_df.select_dtypes(include=["category"]).copy()
+        print(cat.head())
 
         return pd.concat([numeric_df, cat], axis=1)
 
