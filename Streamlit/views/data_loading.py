@@ -5,26 +5,32 @@ import shutil
 from random import randint
 
 from myutils import inject_custom_css
-from components import sagemaker_connection, data_type_checker
 from components.preprocessing import PreprocessPipeline
+from views import supervised_analysis
 
-st.set_page_config(layout="wide", page_title="Epoch Solution")
+conv_dict = {'int64': 'Numerical',
+             'float64': 'Numerical',
+             'object': 'String',
+             'categorical':'Categorical',
+             'datetime':'Time Series'}
+
 
 inject_custom_css()
 t = "<div>Hello there my <span class='highlight blue'>name <span class='bold'>yo</span> </span> is <span class='highlight red'>Fanilo <span class='bold'>Name</span></span></div>"
 
-# def button_click():
-# st.session_state.button_clicked = True
-
+def submit_button_callback():
+    st.session_state.button_clicked = True
 
 def load_view():
+    if 'button_clicked' not in st.session_state:
+        st.session_state.button_clicked = False
     if "key" not in st.session_state:
         st.session_state.key = str(randint(1000, 100000000))
     if "init" not in st.session_state:
+        st.session_state.pipeline = None
         st.session_state.csv_uploaded = False
         st.session_state.init = True
         st.session_state.datatypes = []
-        st.session_state.button_clicked = False
     st.markdown("""# **Data Loading**""")
     st.write(
         "This is the data loading page where you can upload your data files to get analytics"
@@ -80,10 +86,12 @@ def load_view():
             )
             # data_types = data_type_checker.data_types()
             # testing
-            pipe = PreprocessPipeline(uploaded_df)
-            st.session_state["pipeline"] = pipe
+            if st.session_state.pipeline is None:
+                pipe = PreprocessPipeline(uploaded_df)
+                st.session_state.pipeline = pipe
             actual_data_types = []
-            data_types = [i.__str__() for i in list(pipe.cleaned_df.dtypes.values)]
+            data_types = [i.__str__() for i in list(st.session_state.pipeline.cleaned_df.dtypes.values)]
+
             options = ["Numerical", "Time Series", "Categorical"]
             columns = list(uploaded_df.columns)
             col1, col2 = st.columns(2)
@@ -102,7 +110,7 @@ def load_view():
                         st.selectbox(label="", options=sorted_options, key=i)
                     )
             st.session_state.datatypes = actual_data_types
-            st.button("Continue")
-            st.write(st.session_state.button_clicked)
-            if st.session_state.button_clicked == True:
-                st.write("continue to analysis page")
+            if st.button("Continue"):
+                st.write("Continue on to our Analysis Pages")
+                st.session_state.button_clicked = True
+                
