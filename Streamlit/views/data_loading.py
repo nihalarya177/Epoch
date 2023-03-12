@@ -1,17 +1,12 @@
 import streamlit as st
 import pandas as pd
-import zipfile
-import shutil
 from random import randint
 
 from myutils import inject_custom_css
-from components import sagemaker_connection, data_type_checker
 from components.preprocessing import PreprocessPipeline
-
-st.set_page_config(layout="wide", page_title="Epoch Solution")
+from components.eda_function import *
 
 inject_custom_css()
-t = "<div>Hello there my <span class='highlight blue'>name <span class='bold'>yo</span> </span> is <span class='highlight red'>Fanilo <span class='bold'>Name</span></span></div>"
 
 # def button_click():
 # st.session_state.button_clicked = True
@@ -73,6 +68,14 @@ def load_view():
             unsafe_allow_html=True,
         )
         with st.container():
+            st.subheader("Table Description")
+            st.write("Automatically generated table description")
+            pipe = PreprocessPipeline(uploaded_df)
+            with st.spinner("Generating auto desciption..."):
+                st.session_state["pipeline"] = pipe
+                description = get_df_description(pipe.cleaned_df)
+                desc = f'<p style="fcolor:Green; font-size: 24px;">{description}</p>'
+                st.write(desc, unsafe_allow_html=True)
             st.subheader("Data Type Check")
             st.write("We automatically detected these as the column datatypes")
             st.write(
@@ -80,8 +83,8 @@ def load_view():
             )
             # data_types = data_type_checker.data_types()
             # testing
-            pipe = PreprocessPipeline(uploaded_df)
-            st.session_state["pipeline"] = pipe
+
+            print(st.session_state["pipeline"])
             actual_data_types = []
             data_types = [i.__str__() for i in list(pipe.cleaned_df.dtypes.values)]
             options = ["Numerical", "Time Series", "Categorical"]
@@ -106,3 +109,6 @@ def load_view():
             st.write(st.session_state.button_clicked)
             if st.session_state.button_clicked == True:
                 st.write("continue to analysis page")
+
+
+load_view()

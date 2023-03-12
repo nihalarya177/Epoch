@@ -3,11 +3,15 @@ from components.data_profiling import get_data_profile_report
 from sklearn.datasets import load_iris
 import pandas as pd
 from streamlit_pandas_profiling import st_profile_report
+from sklearn.datasets import fetch_openml
 
 
 def load_view():
-    iris = load_iris(as_frame=True)
-    data = pd.concat([iris.data, iris.target], axis=1)
-    with st.spinner("Wait for it..."):
-        report = get_data_profile_report(data)
-    st_profile_report(report=report)
+    if st.session_state.get("pipeline") is None:
+        st.warning("Please first load your data in the Data loading page")
+    else:
+        report = st.session_state.get("pipeline").report
+        st_profile_report(report=report)
+
+
+load_view()
