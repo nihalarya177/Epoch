@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(layout="wide", page_title="Epoch Solution")
+st.set_page_config(layout="wide")
 # print(sys.path)
 import webbrowser
 import urllib

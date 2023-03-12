@@ -25,6 +25,7 @@ bnlearn = "^0.7.14"
 setuptools = "^67.6.0"
 st-pages = "^0.3.5"
 streamlit-extras = "^0.2.6"
+openml = "^0.13.0"
 
 
 [tool.poetry.group.dev.dependencies]

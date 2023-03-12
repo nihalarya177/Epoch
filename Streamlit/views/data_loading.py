@@ -2,11 +2,11 @@ import streamlit as st
 import pandas as pd
 from random import randint
 
-from myutils import inject_custom_css
+# from myutils import inject_custom_css
 from components.preprocessing import PreprocessPipeline
 from components.eda_function import *
 
-inject_custom_css()
+# inject_custom_css()
 
 # def button_click():
 # st.session_state.button_clicked = True
@@ -51,9 +51,9 @@ def load_view():
                     div[data-testid="stVerticalBlock"] div[style*="flex-direction: column;"] div[data-testid="stVerticalBlock"] {
                         border: 1px rgba(38,39,48,255);
                         border-radius: 7px;
-                        background: #6c91f5;
+                        background: #d4f1f4;
                         padding: 50px;
-                        padding-right:50px;
+                        padding-right:150px;
                     }
 
                     div[role="listbox"] ul {
@@ -61,7 +61,7 @@ def load_view():
                     }
 
                     div[data-baseweb="select"] > div {
-                        background-color: rgba(14,17,23,255);
+                        background-color: white;
                     }
                 </style>
                 """,
@@ -75,7 +75,7 @@ def load_view():
                 st.session_state["pipeline"] = pipe
                 description = get_df_description(pipe.cleaned_df)
                 # desc = f'<p style="fcolor:Green; font-size: 24px;">{description}</p>'
-                st.text(description)
+                st.markdown(description)
             st.subheader("Data Type Check")
             st.write("We automatically detected these as the column datatypes")
             st.write(
@@ -88,7 +88,7 @@ def load_view():
             actual_data_types = []
             data_types = [i.__str__() for i in list(pipe.cleaned_df.dtypes.values)]
             options = ["Numerical", "Time Series", "Categorical"]
-            columns = list(uploaded_df.columns)
+            columns = list(pipe.cleaned_df.columns)
             col1, col2 = st.columns(2)
             for i in range(len(data_types)):
                 data_option = []
