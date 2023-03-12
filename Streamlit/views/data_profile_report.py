@@ -3,6 +3,7 @@ from components.data_profiling import get_data_profile_report
 from sklearn.datasets import load_iris
 import pandas as pd
 from streamlit_pandas_profiling import st_profile_report
+
 from sklearn.datasets import fetch_openml
 
 
@@ -15,3 +16,4 @@ def load_view():
 
 
 load_view()
+

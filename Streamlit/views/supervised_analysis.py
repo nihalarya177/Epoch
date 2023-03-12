@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 from sklearn.datasets import fetch_openml
 import pandas as pd
 from components.preprocessing import PreprocessPipeline
@@ -10,9 +11,10 @@ from components.summarizer import get_openai_response
 # inject_custom_css()
 
 
+
 def data_loader_view():
     st.markdown("""# **File Upload**""")
-    st.write("This is the page to plot graphsonto our application")
+    st.write("This is the page to plot graphs onto our application")
 
 
 def load_view():
@@ -55,3 +57,4 @@ def load_view():
 
 
 load_view()
+

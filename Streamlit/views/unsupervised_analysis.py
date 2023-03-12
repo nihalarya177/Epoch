@@ -1,8 +1,14 @@
 import streamlit as st
+from sklearn.datasets import fetch_openml
+import pandas as pd
+from pycaret.datasets import get_data
 
-def data_loader_view():
-    st.markdown('''# **File Upload**''')
-    st.write('This is the page to upload data onto our application')
+from components import eda_function, preprocessing
+
+
 
 def load_view():
-    st.write('hello')
+    st.markdown('''# **Exploratory Data Analysis**''')
+    st.write('This page shows you reports and different graphs of your data')
+    data = get_data('iris')
+    eda_function.launch_eda(data)

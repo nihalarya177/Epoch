@@ -4,22 +4,31 @@ from random import randint
 
 # from myutils import inject_custom_css
 from components.preprocessing import PreprocessPipeline
+
+from views import supervised_analysis
+
+conv_dict = {'int64': 'Numerical',
+             'float64': 'Numerical',
+             'object': 'String',
+             'categorical':'Categorical',
+             'datetime64[ns]':'Time Series'}
+
+
 from components.eda_function import *
 
-# inject_custom_css()
-
-# def button_click():
-# st.session_state.button_clicked = True
-
+def submit_button_callback():
+    st.session_state.button_clicked = True
 
 def load_view():
+    if 'button_clicked' not in st.session_state:
+        st.session_state.button_clicked = False
     if "key" not in st.session_state:
         st.session_state.key = str(randint(1000, 100000000))
     if "init" not in st.session_state:
+        st.session_state.pipeline = None
         st.session_state.csv_uploaded = False
         st.session_state.init = True
         st.session_state.datatypes = []
-        st.session_state.button_clicked = False
     st.markdown("""# **Data Loading**""")
     st.write(
         "This is the data loading page where you can upload your data files to get analytics"
@@ -84,11 +93,20 @@ def load_view():
             # data_types = data_type_checker.data_types()
             # testing
 
+            if st.session_state.pipeline is None:
+                pipe = PreprocessPipeline(uploaded_df)
+                st.session_state.pipeline = pipe
+
+
             print(st.session_state["pipeline"])
+
             actual_data_types = []
-            data_types = [i.__str__() for i in list(pipe.cleaned_df.dtypes.values)]
-            options = ["Numerical", "Time Series", "Categorical"]
-            columns = list(pipe.cleaned_df.columns)
+
+            datas = [i.__str__() for i in list(st.session_state.pipeline.cleaned_df.dtypes.values)]
+            data_types = [conv_dict[i] for i in datas]
+            options = ["Numerical", "Time Series", "Categorical", "String"]
+            columns = list(uploaded_df.columns)
+
             col1, col2 = st.columns(2)
             for i in range(len(data_types)):
                 data_option = []
@@ -104,6 +122,7 @@ def load_view():
                         st.selectbox(label="", options=sorted_options, key=i)
                     )
             st.session_state.datatypes = actual_data_types
+
             st.button("Continue")
             st.write(st.session_state.button_clicked)
             if st.session_state.button_clicked == True:
