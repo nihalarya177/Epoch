@@ -8,6 +8,12 @@ class CarClassifier(BaseEstimator):
         self.minsup = minsup
         self.minconf = minconf
 
+    def getConf(self, name):
+        if type(self.minconf) == float:
+            return self.minconf
+        else:
+            return self.minconf[name]
+
     def fit(self, X, y):
         # Check that X.shape[0]==y.shape[0]
         # X, y = check_X_y(X, y)
@@ -19,7 +25,7 @@ class CarClassifier(BaseEstimator):
 
         return True
 
-    def predict(self, X):
+    def predict_(self, X):
         # Check that fit has been called
         check_is_fitted(self)
 
@@ -31,6 +37,13 @@ class CarClassifier(BaseEstimator):
                 return ans
 
         return self.maj
+
+    def predict(self, X):
+        y_ = []
+        for i in X.index:
+            y_ += [self.predict_(X.loc[i])]
+
+        return pd.Series(y_, index=X.index)
 
     def predict_compare(self, df1, df2):
         without = list(df1.index)
@@ -72,7 +85,9 @@ class CarClassifier(BaseEstimator):
             ).value_counts()
             val = self.X_[i].value_counts()
             for j in vals.index:
-                if val[j[0]] >= self.minsup and vals[j] / val[j[0]] >= self.minconf:
+                if val[j[0]] >= self.minsup and vals[j] / val[j[0]] >= self.getConf(
+                    j[1]
+                ):
                     if j[1] not in temp_rules:
                         temp_rules[j[1]] = list()
 
@@ -176,7 +191,7 @@ class CarClassifier(BaseEstimator):
         min_err = min(final_rules["err"])
         for i in final_rules.index:
             if final_rules.at[i, "err"] == min_err:
-                self.maj = (final_rules[final_rules.index == i])["maj"]
+                self.maj = (final_rules[final_rules.index == i])["maj"][i]
                 break
             self.rules = pd.concat(
                 [self.rules, final_rules[final_rules.index == i]], axis=0
@@ -205,7 +220,7 @@ class CarClassifier(BaseEstimator):
                     k[self.y_.name] = i
                     arr.append(k)
         dat = pd.json_normalize(arr)
-        dat["acc"] = dat.get("rsup", 0) / dat["sup"]
+        dat["acc"] = dat["rsup"] / dat["sup"]
         dat.sort_values(by=["acc", "sup"], ascending=False, inplace=True)
 
         cols = list(dat.columns)
