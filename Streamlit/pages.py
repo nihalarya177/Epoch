@@ -1,12 +1,62 @@
+import streamlit as st
 
-# Epoch's Usable AI
+st.set_page_config(layout="wide", page_title="Epoch Solution")
+# print(sys.path)
+import webbrowser
+import urllib
+import base64
+from typing import List
+from st_pages import Page, show_pages, add_page_title
+from streamlit_extras.switch_page_button import switch_page
+import os
 
-Data-driven insights for everyone, not just for data scientists.
+ROOT_DIR = os.path.abspath(os.curdir)
+# print(ROOT_DIR)
+# Specify what pages should be shown in the sidebar, and what their titles and icons
+# should be
+show_pages(
+    [
+        Page(
+            f"{ROOT_DIR}/Streamlit/pages.py",
+            "Usable AI",
+            "🕵️",
+        ),
+        Page(
+            f"{ROOT_DIR}/Streamlit/views/data_loading.py",
+            "Data Loading",
+            "🕵️",
+        ),
+        Page(
+            f"{ROOT_DIR}/Streamlit/views/supervised_analysis.py",
+            "Supervised Analysis",
+            "🤖",
+        ),
+        Page(
+            f"{ROOT_DIR}/Streamlit/views/data_profile_report.py",
+            "Data Profiling",
+            "🕵️",
+        ),
+        # Page(
+        #     f"{ROOT_DIR}/Streamlit/views/unsupervised_learning.py",
+        #     "Data Profiling",
+        #     "🕵️",
+        # ),
+        # Page("Streamlit/keyword_wordcloud.py", "Keywords", "🧐"),
+        # Page("Streamlit/presentation.py", "Presentation", "🧐"),
+    ]
+)
+with st.container():
+    st.markdown(
+        f"""
+    # Epoch's Usable AI
 
-## Try it Out
+    Data-driven insights for everyone, not just for data scientists."""
+    )
+    st.image("Streamlit/assets/images/usable_ai.jpeg")
 
-- Stramlit Application:
-- Video Demo:
+# # # # Optional -- adds the title and icon to the current page
+st.markdown(
+    f"""
 
 ## Inspiration
 
@@ -51,3 +101,5 @@ Moving forward, we plan to continue improving and refining our Usable AI tool, s
 In addition, we hope to expand our reach and make our tool more accessible to a wider audience, including small businesses and individuals who may not have the resources to invest in data science expertise. We believe that democratizing Machine Learning in this way has the potential to drive significant growth and innovation across a wide range of industries and use cases.
 
 Overall, we are excited to continue pushing the boundaries of what is possible with Usable AI and helping businesses and individuals unlock the full potential of their data.
+"""
+)

@@ -1,11 +1,10 @@
 import streamlit as st
 import pandas as pd
-import zipfile
-import shutil
 from random import randint
 
 from myutils import inject_custom_css
 from components.preprocessing import PreprocessPipeline
+
 from views import supervised_analysis
 
 conv_dict = {'int64': 'Numerical',
@@ -15,8 +14,10 @@ conv_dict = {'int64': 'Numerical',
              'datetime64[ns]':'Time Series'}
 
 
+from components.eda_function import *
+
+
 inject_custom_css()
-t = "<div>Hello there my <span class='highlight blue'>name <span class='bold'>yo</span> </span> is <span class='highlight red'>Fanilo <span class='bold'>Name</span></span></div>"
 
 def submit_button_callback():
     st.session_state.button_clicked = True
@@ -62,7 +63,7 @@ def load_view():
                     div[data-testid="stVerticalBlock"] div[style*="flex-direction: column;"] div[data-testid="stVerticalBlock"] {
                         border: 1px rgba(38,39,48,255);
                         border-radius: 7px;
-                        background: rgba(38,39,48,255);
+                        background: #6c91f5;
                         padding: 50px;
                         padding-right:50px;
                     }
@@ -79,6 +80,14 @@ def load_view():
             unsafe_allow_html=True,
         )
         with st.container():
+            st.subheader("Table Description")
+            st.write("Automatically generated table description")
+            pipe = PreprocessPipeline(uploaded_df)
+            with st.spinner("Generating auto description..."):
+                st.session_state["pipeline"] = pipe
+                description = get_df_description(pipe.cleaned_df)
+                # desc = f'<p style="fcolor:Green; font-size: 24px;">{description}</p>'
+                st.text(description)
             st.subheader("Data Type Check")
             st.write("We automatically detected these as the column datatypes")
             st.write(
@@ -86,9 +95,14 @@ def load_view():
             )
             # data_types = data_type_checker.data_types()
             # testing
+
             if st.session_state.pipeline is None:
                 pipe = PreprocessPipeline(uploaded_df)
                 st.session_state.pipeline = pipe
+
+
+            print(st.session_state["pipeline"])
+
             actual_data_types = []
             datas = [i.__str__() for i in list(st.session_state.pipeline.cleaned_df.dtypes.values)]
             data_types = [conv_dict[i] for i in datas]
@@ -104,13 +118,16 @@ def load_view():
                     st.subheader(columns[i])
                     st.write(" ")
                     st.write(" ")
-                    st.write(" ")
                 with col2:
                     actual_data_types.append(
                         st.selectbox(label="", options=sorted_options, key=i)
                     )
             st.session_state.datatypes = actual_data_types
-            if st.button("Continue"):
-                st.write("Continue on to our Analysis Pages")
-                st.session_state.button_clicked = True
-                
+
+            st.button("Continue")
+            st.write(st.session_state.button_clicked)
+            if st.session_state.button_clicked == True:
+                st.write("continue to analysis page")
+
+
+load_view()
