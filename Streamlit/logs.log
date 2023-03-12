@@ -5381,3 +5381,13 @@ Alternately, you can install this by running `pip install pycaret[models]`
 Alternately, you can install this by running `pip install pycaret[models]`
 2023-03-12 17:03:39,597:INFO:setup() successfully completed in 2.41s...............
 2023-03-12 17:03:39,597:INFO:Soft dependency imported: autoviz: 0.1.58
+2023-03-12 17:06:19,976:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-12 17:06:19,976:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-12 17:06:19,976:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-12 17:06:19,976:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2023-03-12 17:06:21,456:WARNING:
+'prophet' is a soft dependency and not included in the pycaret installation. Please run: `pip install prophet` to install.
