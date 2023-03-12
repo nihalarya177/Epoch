@@ -4,9 +4,18 @@ from streamlit.components.v1 import html
 import sys
 from PATHS import NAVBAR_PATHS, SETTINGS
 
+if "pipeline" not in st.session_state:
+        st.session_state.pipeline = None
+
+def set_session_state(pipeline):
+    if "pipeline" not in st.session_state:
+        st.session_state.pipeline = pipeline
+
+def get_session_state():
+    return st.session_state.pipeline
 
 def inject_custom_css():
-    with open("Streamlit/assets/styles.css") as f:
+    with open("assets/styles.css") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 
@@ -18,7 +27,7 @@ def get_current_route():
 
 
 def navbar_component():
-    with open("Streamlit/assets/images/icon_for_sidebar.jpeg", "rb") as image_file:
+    with open("assets/images/icon_for_sidebar.jpeg", "rb") as image_file:
         image_as_base64 = base64.b64encode(image_file.read())
 
     navbar_items = ""

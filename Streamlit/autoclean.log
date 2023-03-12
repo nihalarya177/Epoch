@@ -1,0 +1,26 @@
+12-03-2023 15:55:14.84 - INFO - Started validation of input parameters...
+12-03-2023 15:55:14.84 - INFO - Completed validation of input parameters
+12-03-2023 15:55:14.84 - INFO - Started handling of duplicates... Method: "AUTO"
+12-03-2023 15:55:14.85 - DEBUG - 0 missing values found
+12-03-2023 15:55:14.85 - INFO - Completed handling of duplicates in 0.005413 seconds
+12-03-2023 15:55:14.85 - INFO - Skipped handling of missing values
+12-03-2023 15:55:14.85 - INFO - Started handling of outliers... Method: "WINZ"
+12-03-2023 15:55:14.85 - DEBUG - Outlier imputation of 1 value(s) succeeded for feature "1st Fold"
+12-03-2023 15:55:14.86 - DEBUG - Outlier imputation of 2 value(s) succeeded for feature "2nd Fold"
+12-03-2023 15:55:14.86 - DEBUG - Outlier imputation of 1 value(s) succeeded for feature "3rd Fold"
+12-03-2023 15:55:14.86 - DEBUG - Outlier imputation of 2 value(s) succeeded for feature "4th Fold"
+12-03-2023 15:55:14.86 - DEBUG - Outlier imputation of 1 value(s) succeeded for feature "5th Fold"
+12-03-2023 15:55:14.87 - DEBUG - Outlier imputation of 2 value(s) succeeded for feature "mean"
+12-03-2023 15:55:14.87 - INFO - Completed handling of outliers in 0.017844 seconds
+12-03-2023 15:55:14.87 - INFO - Started conversion of DATETIME features... Granularity: D
+12-03-2023 15:55:14.87 - INFO - Completed conversion of DATETIME features in 0.0003 seconds
+12-03-2023 15:55:14.87 - INFO - Skipped encoding of categorical features
+12-03-2023 15:55:14.87 - INFO - Started feature type conversion...
+12-03-2023 15:55:14.87 - DEBUG - Conversion to type FLOAT succeeded for feature "1st Fold"
+12-03-2023 15:55:14.87 - DEBUG - Conversion to type FLOAT succeeded for feature "2nd Fold"
+12-03-2023 15:55:14.88 - DEBUG - Conversion to type FLOAT succeeded for feature "3rd Fold"
+12-03-2023 15:55:14.89 - DEBUG - Conversion to type FLOAT succeeded for feature "4th Fold"
+12-03-2023 15:55:14.89 - DEBUG - Conversion to type FLOAT succeeded for feature "5th Fold"
+12-03-2023 15:55:14.89 - DEBUG - Conversion to type FLOAT succeeded for feature "mean"
+12-03-2023 15:55:14.89 - INFO - Completed feature type conversion for 6 feature(s) in 0.021987 seconds
+12-03-2023 15:55:14.89 - INFO - AutoClean process completed in 0.06535 seconds
