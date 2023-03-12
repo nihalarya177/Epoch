@@ -19,6 +19,8 @@ conv_dict = {
     "category": "Categorical",
     "Category": "Categorical",
     "Datetime64[ns]": "Time Series",
+    "bool": "Categorical",
+    "Bool": "Categorical",
 }
 
 
@@ -89,7 +91,8 @@ def load_view():
         with st.container():
             st.subheader("Table Description")
             st.write("Automatically generated table description")
-            pipe = PreprocessPipeline(uploaded_df)
+            with st.spinner("Data Preprocessing..."):
+                pipe = PreprocessPipeline(uploaded_df)
             with st.spinner("Generating auto description..."):
                 st.session_state["pipeline"] = pipe
                 description = get_df_description(pipe.cleaned_df)
@@ -142,9 +145,9 @@ def load_view():
                     )
             st.session_state.datatypes = actual_data_types
 
-            if st.button("Continue"):
-                st.session_state.button_clicked == True
-                st.write("continue to analysis page")
+            # if st.button("Continue"):
+            #     st.session_state.button_clicked == True
+            #     st.write("continue to analysis page")
 
 
 load_view()

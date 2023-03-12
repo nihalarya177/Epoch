@@ -184,7 +184,7 @@ class PreprocessPipeline:
         numeric_df = self.cleaned_df.select_dtypes(include=["number"])
         print(numeric_df.head())
         numeric_df, jnb = bin_numeric_columns(numeric_df)
-        cat = self.cleaned_df.select_dtypes(include=["category"]).copy()
+        cat = self.cleaned_df.select_dtypes(include=["category", "bool"]).copy()
         print(cat.head())
 
         return pd.concat([numeric_df, cat], axis=1)

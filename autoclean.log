@@ -1,35 +1,19 @@
-12-03-2023 18:25:42.55 - INFO - Started validation of input parameters...
-12-03-2023 18:25:42.55 - INFO - Completed validation of input parameters
-12-03-2023 18:25:42.55 - INFO - Started handling of duplicates... Method: "AUTO"
-12-03-2023 18:25:42.56 - DEBUG - Deletion of 243 duplicate(s) succeeded
-12-03-2023 18:25:42.56 - INFO - Completed handling of duplicates in 0.004478 seconds
-12-03-2023 18:25:42.56 - INFO - Skipped handling of missing values
-12-03-2023 18:25:42.56 - INFO - Started handling of outliers... Method: "WINZ"
-12-03-2023 18:25:42.56 - DEBUG - Outlier imputation of 19 value(s) succeeded for feature "volatile acidity"
-12-03-2023 18:25:42.56 - DEBUG - Outlier imputation of 1 value(s) succeeded for feature "citric acid"
-12-03-2023 18:25:42.59 - DEBUG - Outlier imputation of 125 value(s) succeeded for feature "residual sugar"
-12-03-2023 18:25:42.61 - DEBUG - Outlier imputation of 97 value(s) succeeded for feature "chlorides"
-12-03-2023 18:25:42.61 - DEBUG - Outlier imputation of 26 value(s) succeeded for feature "free sulfur dioxide"
-12-03-2023 18:25:42.62 - DEBUG - Outlier imputation of 45 value(s) succeeded for feature "total sulfur dioxide"
-12-03-2023 18:25:42.62 - DEBUG - Outlier imputation of 34 value(s) succeeded for feature "density"
-12-03-2023 18:25:42.63 - DEBUG - Outlier imputation of 26 value(s) succeeded for feature "pH"
-12-03-2023 18:25:42.64 - DEBUG - Outlier imputation of 55 value(s) succeeded for feature "sulphates"
-12-03-2023 18:25:42.64 - DEBUG - Outlier imputation of 12 value(s) succeeded for feature "alcohol"
-12-03-2023 18:25:42.65 - DEBUG - Outlier imputation of 27 value(s) succeeded for feature "quality"
-12-03-2023 18:25:42.65 - INFO - Completed handling of outliers in 0.088408 seconds
-12-03-2023 18:25:42.65 - INFO - Skipped datetime feature conversion
-12-03-2023 18:25:42.65 - INFO - Skipped encoding of categorical features
-12-03-2023 18:25:42.65 - INFO - Started feature type conversion...
-12-03-2023 18:25:42.65 - DEBUG - Conversion to type FLOAT succeeded for feature "volatile acidity"
-12-03-2023 18:25:42.65 - DEBUG - Conversion to type FLOAT succeeded for feature "citric acid"
-12-03-2023 18:25:42.65 - DEBUG - Conversion to type FLOAT succeeded for feature "residual sugar"
-12-03-2023 18:25:42.65 - DEBUG - Conversion to type FLOAT succeeded for feature "chlorides"
-12-03-2023 18:25:42.65 - DEBUG - Conversion to type FLOAT succeeded for feature "free sulfur dioxide"
-12-03-2023 18:25:42.65 - DEBUG - Conversion to type FLOAT succeeded for feature "total sulfur dioxide"
-12-03-2023 18:25:42.65 - DEBUG - Conversion to type FLOAT succeeded for feature "density"
-12-03-2023 18:25:42.65 - DEBUG - Conversion to type FLOAT succeeded for feature "pH"
-12-03-2023 18:25:42.66 - DEBUG - Conversion to type FLOAT succeeded for feature "sulphates"
-12-03-2023 18:25:42.66 - DEBUG - Conversion to type FLOAT succeeded for feature "alcohol"
-12-03-2023 18:25:42.66 - DEBUG - Conversion to type INT succeeded for feature "quality"
-12-03-2023 18:25:42.66 - INFO - Completed feature type conversion for 11 feature(s) in 0.009053 seconds
-12-03-2023 18:25:42.66 - INFO - AutoClean process completed in 0.109017 seconds
+12-03-2023 18:48:37.41 - INFO - Started validation of input parameters...
+12-03-2023 18:48:37.41 - INFO - Completed validation of input parameters
+12-03-2023 18:48:37.41 - INFO - Started handling of duplicates... Method: "AUTO"
+12-03-2023 18:48:37.41 - DEBUG - Deletion of 1 duplicate(s) succeeded
+12-03-2023 18:48:37.41 - INFO - Completed handling of duplicates in 0.002036 seconds
+12-03-2023 18:48:37.41 - INFO - Skipped handling of missing values
+12-03-2023 18:48:37.41 - INFO - Started handling of outliers... Method: "WINZ"
+12-03-2023 18:48:37.41 - DEBUG - Outlier imputation of 4 value(s) succeeded for feature "sepal width (cm)"
+12-03-2023 18:48:37.41 - INFO - Completed handling of outliers in 0.002219 seconds
+12-03-2023 18:48:37.41 - INFO - Skipped datetime feature conversion
+12-03-2023 18:48:37.41 - INFO - Skipped encoding of categorical features
+12-03-2023 18:48:37.41 - INFO - Started feature type conversion...
+12-03-2023 18:48:37.41 - DEBUG - Conversion to type FLOAT succeeded for feature "sepal length (cm)"
+12-03-2023 18:48:37.41 - DEBUG - Conversion to type FLOAT succeeded for feature "sepal width (cm)"
+12-03-2023 18:48:37.41 - DEBUG - Conversion to type FLOAT succeeded for feature "petal length (cm)"
+12-03-2023 18:48:37.41 - DEBUG - Conversion to type FLOAT succeeded for feature "petal width (cm)"
+12-03-2023 18:48:37.41 - DEBUG - Conversion to type INT succeeded for feature "target"
+12-03-2023 18:48:37.41 - INFO - Completed feature type conversion for 5 feature(s) in 0.002093 seconds
+12-03-2023 18:48:37.41 - INFO - AutoClean process completed in 0.012113 seconds
