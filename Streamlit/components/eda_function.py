@@ -69,3 +69,12 @@ def launch_eda(df):
                 st.write(" ")
                 st.write(" ")
 
+
+def get_df_description(df: pd.DataFrame):
+    pd.set_option("display.max_colwidth", None)
+    resp = get_openai_response(
+        f"Explain this table without adding extra information in very simple way \n \n {df.head(n=20).reset_index(drop=True).__str__()}"
+    )
+    return resp["choices"][0].text
+
+

@@ -6,6 +6,7 @@ import emoji
 from .data_profiling import get_data_profile_report
 from jenkspy import JenksNaturalBreaks
 import numpy as np
+from .summarizer import get_openai_response
 
 
 def auto_clean(df: pd.DataFrame, **kwargs) -> pd.DataFrame:
@@ -35,12 +36,12 @@ def na_handler(data: pd.DataFrame, threshold=0.1):
     # dropping column and rows which have null values more than set threshold
     thresh_ver = round(len(data) * threshold)
     thres_hor = round(data.shape[1] * threshold)
-    print(thresh_ver, thres_hor)
-    print(data.shape)
+    # print(thresh_ver, thres_hor)
+    # print(data.shape)
     data.dropna(axis=1, thresh=thresh_ver, inplace=True)
-    print(data.shape)
+    # print(data.shape)
     data.dropna(axis=0, thresh=thres_hor, inplace=True)
-    print(data.shape)
+    # print(data.shape)
     return data
 
 
@@ -158,3 +159,40 @@ class PreprocessPipeline:
         cat = self.cleaned_df.select_dtypes(include=["category"]).copy()
 
         return pd.concat([numeric_df, cat], axis=1)
+
+    def get_top_correlated_features(self, column: str, thresh=0.1):
+        corrs = self.report.description_set["correlations"]["auto"][column]
+        pos_features = []
+        neg_features = []
+        for i, j in corrs.items():
+            if i == column:
+                continue
+            if j > thresh:
+                pos_features.append(i)
+            elif j < -thresh:
+                neg_features.append(i)
+        return pos_features, neg_features
+
+    def get_top_feature_text(self, col):
+        pos, neg = self.get_top_correlated_features(column=col)
+        pos_response = ""
+        neg_response = ""
+        if pos != []:
+            pos = ",".join(pos)
+            pos_response = (
+                get_openai_response(
+                    f"Generate this into simple bullet points without adding extra information : \n{col} is positively correlated with are {pos}"
+                )
+                .choices[0]
+                .text
+            )
+        if neg != []:
+            neg = ",".join(neg)
+            neg_response = (
+                get_openai_response(
+                    f"Generate this into simple bullet points without adding extra information : \n{col} is negatively correlated with are {neg}"
+                )
+                .choices[0]
+                .text
+            )
+        return pos_response, neg_response

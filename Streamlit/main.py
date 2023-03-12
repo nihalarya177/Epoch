@@ -1,5 +1,8 @@
 import streamlit as st
+
+
 st.set_page_config(layout="wide", page_title="Epoch Solution")
+
 import myutils as utl
 
 # Files to be imported from views folder for
