@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from random import randint
+import time
 
 # from myutils import inject_custom_css
 from components.preprocessing import PreprocessPipeline
@@ -92,8 +93,15 @@ def load_view():
             with st.spinner("Generating auto description..."):
                 st.session_state["pipeline"] = pipe
                 description = get_df_description(pipe.cleaned_df)
+                t = st.empty()
+                for i in range(len(description) + 1):
+                    if i % 2 == 0:
+                        t.write("## %s" % description[0:i])
+                        time.sleep(0.01)
+                    else:
+                        t.write("## %s" % description[0:i])
+                        time.sleep(0.03)
                 # desc = f'<p style="fcolor:Green; font-size: 24px;">{description}</p>'
-                st.markdown(description)
             st.subheader("Data Type Check")
             st.write("We automatically detected these as the column datatypes")
             st.write(
@@ -134,9 +142,8 @@ def load_view():
                     )
             st.session_state.datatypes = actual_data_types
 
-            st.button("Continue")
-            st.write(st.session_state.button_clicked)
-            if st.session_state.button_clicked == True:
+            if st.button("Continue"):
+                st.session_state.button_clicked == True
                 st.write("continue to analysis page")
 
 
