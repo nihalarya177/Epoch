@@ -7,20 +7,29 @@ from components.preprocessing import PreprocessPipeline
 
 from views import supervised_analysis
 
-conv_dict = {'int64': 'Numerical',
-             'float64': 'Numerical',
-             'object': 'String',
-             'categorical':'Categorical',
-             'datetime64[ns]':'Time Series'}
+
+conv_dict = {
+    "Int64": "Numerical",
+    "float64": "Numerical",
+    "Float64": "Numerical",
+    "int64": "Numerical",
+    "object": "String",
+    "Object": "String",
+    "category": "Categorical",
+    "Category": "Categorical",
+    "Datetime64[ns]": "Time Series",
+}
 
 
 from components.eda_function import *
 
+
 def submit_button_callback():
     st.session_state.button_clicked = True
 
+
 def load_view():
-    if 'button_clicked' not in st.session_state:
+    if "button_clicked" not in st.session_state:
         st.session_state.button_clicked = False
     if "key" not in st.session_state:
         st.session_state.key = str(randint(1000, 100000000))
@@ -97,12 +106,14 @@ def load_view():
                 pipe = PreprocessPipeline(uploaded_df)
                 st.session_state.pipeline = pipe
 
-
             print(st.session_state["pipeline"])
 
             actual_data_types = []
 
-            datas = [i.__str__() for i in list(st.session_state.pipeline.cleaned_df.dtypes.values)]
+            datas = [
+                i.__str__()
+                for i in list(st.session_state.pipeline.cleaned_df.dtypes.values)
+            ]
             data_types = [conv_dict[i] for i in datas]
             options = ["Numerical", "Time Series", "Categorical", "String"]
             columns = list(uploaded_df.columns)

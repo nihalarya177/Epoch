@@ -11,7 +11,6 @@ from components.summarizer import get_openai_response
 # inject_custom_css()
 
 
-
 def data_loader_view():
     st.markdown("""# **File Upload**""")
     st.write("This is the page to plot graphs onto our application")
@@ -47,7 +46,11 @@ def load_view():
                     resp = get_openai_response(
                         f"Kindly summarise the inferences from the association rules provided below. Explain each association rule separately and do not add technical jargon to the response. The response should be understandable by a child. \n \n {classifier.rules.drop(columns=['sup','rsup','err','maj']).rename(columns={'acc':'accuracy'}).reset_index(drop=True).__str__()}"
                     )
-                    st.text(resp.choices[0].text)
+                    text = resp.choices[0].text
+                    t = st.empty()
+                    for i in range(len(text) + 1):
+                        t.markdown("## %s" % text[0:i])
+                        time.sleep(0.01)
 
             with st.spinner("Generating correlations..."):
                 st.subheader("Correlation")
@@ -57,4 +60,3 @@ def load_view():
 
 
 load_view()
-

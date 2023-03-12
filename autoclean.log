@@ -1,19 +1,19 @@
-12-03-2023 17:08:24.20 - INFO - Started validation of input parameters...
-12-03-2023 17:08:24.20 - INFO - Completed validation of input parameters
-12-03-2023 17:08:24.20 - INFO - Started handling of duplicates... Method: "AUTO"
-12-03-2023 17:08:24.20 - DEBUG - Deletion of 1 duplicate(s) succeeded
-12-03-2023 17:08:24.20 - INFO - Completed handling of duplicates in 0.000784 seconds
-12-03-2023 17:08:24.20 - INFO - Skipped handling of missing values
-12-03-2023 17:08:24.20 - INFO - Started handling of outliers... Method: "WINZ"
-12-03-2023 17:08:24.20 - DEBUG - Outlier imputation of 4 value(s) succeeded for feature "sepal width (cm)"
-12-03-2023 17:08:24.20 - INFO - Completed handling of outliers in 0.001852 seconds
-12-03-2023 17:08:24.20 - INFO - Skipped datetime feature conversion
-12-03-2023 17:08:24.20 - INFO - Skipped encoding of categorical features
-12-03-2023 17:08:24.20 - INFO - Started feature type conversion...
-12-03-2023 17:08:24.20 - DEBUG - Conversion to type FLOAT succeeded for feature "sepal length (cm)"
-12-03-2023 17:08:24.20 - DEBUG - Conversion to type FLOAT succeeded for feature "sepal width (cm)"
-12-03-2023 17:08:24.20 - DEBUG - Conversion to type FLOAT succeeded for feature "petal length (cm)"
-12-03-2023 17:08:24.20 - DEBUG - Conversion to type FLOAT succeeded for feature "petal width (cm)"
-12-03-2023 17:08:24.20 - DEBUG - Conversion to type INT succeeded for feature "target"
-12-03-2023 17:08:24.20 - INFO - Completed feature type conversion for 5 feature(s) in 0.002223 seconds
-12-03-2023 17:08:24.20 - INFO - AutoClean process completed in 0.012792 seconds
+12-03-2023 17:46:51.87 - INFO - Started validation of input parameters...
+12-03-2023 17:46:51.87 - INFO - Completed validation of input parameters
+12-03-2023 17:46:51.87 - INFO - Started handling of duplicates... Method: "AUTO"
+12-03-2023 17:46:51.88 - DEBUG - Deletion of 1 duplicate(s) succeeded
+12-03-2023 17:46:51.88 - INFO - Completed handling of duplicates in 0.001001 seconds
+12-03-2023 17:46:51.88 - INFO - Skipped handling of missing values
+12-03-2023 17:46:51.88 - INFO - Started handling of outliers... Method: "WINZ"
+12-03-2023 17:46:51.88 - DEBUG - Outlier imputation of 4 value(s) succeeded for feature "sepal width (cm)"
+12-03-2023 17:46:51.88 - INFO - Completed handling of outliers in 0.002628 seconds
+12-03-2023 17:46:51.88 - INFO - Skipped datetime feature conversion
+12-03-2023 17:46:51.88 - INFO - Skipped encoding of categorical features
+12-03-2023 17:46:51.88 - INFO - Started feature type conversion...
+12-03-2023 17:46:51.88 - DEBUG - Conversion to type FLOAT succeeded for feature "sepal length (cm)"
+12-03-2023 17:46:51.88 - DEBUG - Conversion to type FLOAT succeeded for feature "sepal width (cm)"
+12-03-2023 17:46:51.88 - DEBUG - Conversion to type FLOAT succeeded for feature "petal length (cm)"
+12-03-2023 17:46:51.88 - DEBUG - Conversion to type FLOAT succeeded for feature "petal width (cm)"
+12-03-2023 17:46:51.88 - DEBUG - Conversion to type INT succeeded for feature "target"
+12-03-2023 17:46:51.88 - INFO - Completed feature type conversion for 5 feature(s) in 0.002816 seconds
+12-03-2023 17:46:51.88 - INFO - AutoClean process completed in 0.013521 seconds
