@@ -5,8 +5,8 @@ Data-driven insights for everyone, not just for data scientists.
 
 ## Try it Out
 
-- Stramlit Application:
-- Video Demo:
+- [Streamlit Application](http://13.229.69.10:8501)
+- [Video Demo](https://youtu.be/Z99KK3GrmJg)
 
 ## Inspiration
 
