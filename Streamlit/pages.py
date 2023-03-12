@@ -17,22 +17,27 @@ ROOT_DIR = os.path.abspath(os.curdir)
 show_pages(
     [
         Page(
-            f"{ROOT_DIR}/Streamlit/pages.py",
+            f"{ROOT_DIR}/pages.py",
             "Usable AI",
             "🕵️",
         ),
         Page(
-            f"{ROOT_DIR}/Streamlit/views/data_loading.py",
+            f"{ROOT_DIR}/views/data_loading.py",
             "Data Loading",
             "🕵️",
         ),
         Page(
-            f"{ROOT_DIR}/Streamlit/views/supervised_analysis.py",
+            f"{ROOT_DIR}/views/unsupervised_analysis.py",
+            "Unsupervised Analysis",
+            "🤖",
+        ),
+        Page(
+            f"{ROOT_DIR}/views/supervised_analysis.py",
             "Supervised Analysis",
             "🤖",
         ),
         Page(
-            f"{ROOT_DIR}/Streamlit/views/data_profile_report.py",
+            f"{ROOT_DIR}/views/data_profile_report.py",
             "Data Profiling",
             "🕵️",
         ),
@@ -52,7 +57,7 @@ with st.container():
 
     Data-driven insights for everyone, not just for data scientists."""
     )
-    st.image("Streamlit/assets/images/usable_ai.jpeg")
+    st.image("assets/images/usable_ai.jpeg")
 
 # # # # Optional -- adds the title and icon to the current page
 st.markdown(

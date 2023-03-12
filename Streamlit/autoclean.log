@@ -1,26 +1,19 @@
-12-03-2023 17:08:48.74 - INFO - Started validation of input parameters...
-12-03-2023 17:08:48.74 - INFO - Completed validation of input parameters
-12-03-2023 17:08:48.74 - INFO - Started handling of duplicates... Method: "AUTO"
-12-03-2023 17:08:48.74 - DEBUG - 0 missing values found
-12-03-2023 17:08:48.74 - INFO - Completed handling of duplicates in 0.003818 seconds
-12-03-2023 17:08:48.74 - INFO - Skipped handling of missing values
-12-03-2023 17:08:48.75 - INFO - Started handling of outliers... Method: "WINZ"
-12-03-2023 17:08:48.75 - DEBUG - Outlier imputation of 1 value(s) succeeded for feature "1st Fold"
-12-03-2023 17:08:48.75 - DEBUG - Outlier imputation of 2 value(s) succeeded for feature "2nd Fold"
-12-03-2023 17:08:48.75 - DEBUG - Outlier imputation of 1 value(s) succeeded for feature "3rd Fold"
-12-03-2023 17:08:48.75 - DEBUG - Outlier imputation of 2 value(s) succeeded for feature "4th Fold"
-12-03-2023 17:08:48.76 - DEBUG - Outlier imputation of 1 value(s) succeeded for feature "5th Fold"
-12-03-2023 17:08:48.76 - DEBUG - Outlier imputation of 2 value(s) succeeded for feature "mean"
-12-03-2023 17:08:48.76 - INFO - Completed handling of outliers in 0.014589 seconds
-12-03-2023 17:08:48.76 - INFO - Started conversion of DATETIME features... Granularity: D
-12-03-2023 17:08:48.76 - INFO - Completed conversion of DATETIME features in 0.0003 seconds
-12-03-2023 17:08:48.76 - INFO - Skipped encoding of categorical features
-12-03-2023 17:08:48.76 - INFO - Started feature type conversion...
-12-03-2023 17:08:48.77 - DEBUG - Conversion to type FLOAT succeeded for feature "1st Fold"
-12-03-2023 17:08:48.77 - DEBUG - Conversion to type FLOAT succeeded for feature "2nd Fold"
-12-03-2023 17:08:48.77 - DEBUG - Conversion to type FLOAT succeeded for feature "3rd Fold"
-12-03-2023 17:08:48.77 - DEBUG - Conversion to type FLOAT succeeded for feature "4th Fold"
-12-03-2023 17:08:48.78 - DEBUG - Conversion to type FLOAT succeeded for feature "5th Fold"
-12-03-2023 17:08:48.78 - DEBUG - Conversion to type FLOAT succeeded for feature "mean"
-12-03-2023 17:08:48.78 - INFO - Completed feature type conversion for 6 feature(s) in 0.015981 seconds
-12-03-2023 17:08:48.78 - INFO - AutoClean process completed in 0.049345 seconds
+12-03-2023 17:35:26.98 - INFO - Started validation of input parameters...
+12-03-2023 17:35:26.98 - INFO - Completed validation of input parameters
+12-03-2023 17:35:26.98 - INFO - Started handling of duplicates... Method: "AUTO"
+12-03-2023 17:35:26.98 - DEBUG - Deletion of 1 duplicate(s) succeeded
+12-03-2023 17:35:26.98 - INFO - Completed handling of duplicates in 0.003436 seconds
+12-03-2023 17:35:26.98 - INFO - Skipped handling of missing values
+12-03-2023 17:35:26.98 - INFO - Started handling of outliers... Method: "WINZ"
+12-03-2023 17:35:26.99 - DEBUG - Outlier imputation of 4 value(s) succeeded for feature "sepal width (cm)"
+12-03-2023 17:35:27.00 - INFO - Completed handling of outliers in 0.013013 seconds
+12-03-2023 17:35:27.00 - INFO - Skipped datetime feature conversion
+12-03-2023 17:35:27.00 - INFO - Skipped encoding of categorical features
+12-03-2023 17:35:27.00 - INFO - Started feature type conversion...
+12-03-2023 17:35:27.00 - DEBUG - Conversion to type FLOAT succeeded for feature "sepal length (cm)"
+12-03-2023 17:35:27.00 - DEBUG - Conversion to type FLOAT succeeded for feature "sepal width (cm)"
+12-03-2023 17:35:27.01 - DEBUG - Conversion to type FLOAT succeeded for feature "petal length (cm)"
+12-03-2023 17:35:27.01 - DEBUG - Conversion to type FLOAT succeeded for feature "petal width (cm)"
+12-03-2023 17:35:27.01 - DEBUG - Conversion to type INT succeeded for feature "target"
+12-03-2023 17:35:27.01 - INFO - Completed feature type conversion for 5 feature(s) in 0.01121 seconds
+12-03-2023 17:35:27.01 - INFO - AutoClean process completed in 0.046375 seconds

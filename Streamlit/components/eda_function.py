@@ -5,6 +5,7 @@ import os
 from streamlit.components.v1.components import declare_component
 import streamlit.components.v1 as components
 from pathlib import Path
+from .summarizer import get_openai_response
 
 dir_dict = {'distplots_nums.html':'Distrubution Plot',
             'heatmaps.html':'Correlation Heatmap',

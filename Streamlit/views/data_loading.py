@@ -7,11 +7,15 @@ from components.preprocessing import PreprocessPipeline
 
 from views import supervised_analysis
 
-conv_dict = {'int64': 'Numerical',
+conv_dict = {'Int64': 'Numerical',
              'float64': 'Numerical',
+             'Float64': 'Numerical',
+             'int64': 'Numerical',
              'object': 'String',
-             'categorical':'Categorical',
-             'datetime64[ns]':'Time Series'}
+             'Object': 'String',
+             'category': 'Categorical',
+             'Category':'Categorical',
+             'Datetime64[ns]':'Time Series'}
 
 
 from components.eda_function import *
@@ -123,10 +127,9 @@ def load_view():
                     )
             st.session_state.datatypes = actual_data_types
 
-            st.button("Continue")
-            st.write(st.session_state.button_clicked)
-            if st.session_state.button_clicked == True:
-                st.write("continue to analysis page")
+            if st.button("Continue"):
+                st.session_state.button_clicked == True
+                st.write("Continue to analysis page")
 
 
 load_view()
