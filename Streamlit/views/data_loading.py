@@ -12,7 +12,7 @@ conv_dict = {'int64': 'Numerical',
              'float64': 'Numerical',
              'object': 'String',
              'categorical':'Categorical',
-             'datetime':'Time Series'}
+             'datetime64[ns]':'Time Series'}
 
 
 inject_custom_css()
@@ -90,9 +90,9 @@ def load_view():
                 pipe = PreprocessPipeline(uploaded_df)
                 st.session_state.pipeline = pipe
             actual_data_types = []
-            data_types = [i.__str__() for i in list(st.session_state.pipeline.cleaned_df.dtypes.values)]
-
-            options = ["Numerical", "Time Series", "Categorical"]
+            datas = [i.__str__() for i in list(st.session_state.pipeline.cleaned_df.dtypes.values)]
+            data_types = [conv_dict[i] for i in datas]
+            options = ["Numerical", "Time Series", "Categorical", "String"]
             columns = list(uploaded_df.columns)
             col1, col2 = st.columns(2)
             for i in range(len(data_types)):

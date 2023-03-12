@@ -13,6 +13,8 @@ dir_dict = {'distplots_nums.html':'Distrubution Plot',
             'scatterplots.html':'Scatter Plot',
             'violinplots.html':'Violin Plot'}
 
+info_dict = {'heatmaps.html':['A correlation heatmap is a way of showing how two things are related to each other. A correlation heatmap is like a picture made up of little boxes, or cells. Each cell shows a different level of correlation between two things. Each cell would show how strongly the row and columns are related. The colour is to differentiate between 1 and -1. 1 indicates that if one increases the other increases and -1 indicates that if one decreases the other increases and vice versa. The stronger the colour, the stronger they are related', 2]}
+
 def launch_eda(df):
 
     exp_name = setup(data=df, target='species', session_id=123)
@@ -29,6 +31,7 @@ def launch_eda(df):
                 components.html(report, height = 600)
         with col2:
                 st.subheader(dir_dict[dir_list[i]])
+                st.write(info_dict[dir_list[i][0]])
                 st.write(" ")
                 st.write(" ")
                 st.write(" ")
