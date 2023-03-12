@@ -4784,3 +4784,72 @@ Alternately, you can install this by running `pip install pycaret[models]`
 'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
 Alternately, you can install this by running `pip install pycaret[models]`
 2023-03-12 16:20:44,528:INFO:Engine successfully changes for model 'rbfsvm' to 'sklearn'.
+2023-03-12 16:20:44,970:INFO:Soft dependency imported: xgboost: 1.7.4
+2023-03-12 16:20:44,993:WARNING:
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-03-12 16:20:45,466:INFO:Soft dependency imported: xgboost: 1.7.4
+2023-03-12 16:20:45,486:WARNING:
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-03-12 16:20:45,494:INFO:Preparing preprocessing pipeline...
+2023-03-12 16:20:45,501:INFO:Set up label encoding.
+2023-03-12 16:20:45,501:INFO:Set up simple imputation.
+2023-03-12 16:20:45,616:INFO:Finished creating preprocessing pipeline.
+2023-03-12 16:20:45,639:INFO:Pipeline: Pipeline(memory=FastMemory(location=C:\Users\nihal\AppData\Local\Temp\joblib),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(exclude=None, include=None,
+                                               transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(exclude=None,
+                                    include=['sepal_length', 'sepal_width',
+                                             'petal_length', 'petal_width'],
+                                    transformer=SimpleImputer(add_indicator=F...
+                                                              copy=True,
+                                                              fill_value=None,
+                                                              keep_empty_features=False,
+                                                              missing_values=nan,
+                                                              strategy='mean',
+                                                              verbose='deprecated'))),
+                ('categorical_imputer',
+                 TransformerWrapper(exclude=None, include=[],
+                                    transformer=SimpleImputer(add_indicator=False,
+                                                              copy=True,
+                                                              fill_value=None,
+                                                              keep_empty_features=False,
+                                                              missing_values=nan,
+                                                              strategy='most_frequent',
+                                                              verbose='deprecated')))],
+         verbose=False)
+2023-03-12 16:20:45,640:INFO:Creating final display dataframe.
+2023-03-12 16:20:46,109:INFO:Setup _display_container:                     Description                                                  Value
+0                    Session id                                                    123
+1                        Target                                                species
+2                   Target type                                             Multiclass
+3                Target mapping  Iris-setosa: 0, Iris-versicolor: 1, Iris-virginica: 2
+4           Original data shape                                               (150, 5)
+5        Transformed data shape                                               (150, 5)
+6   Transformed train set shape                                               (105, 5)
+7    Transformed test set shape                                                (45, 5)
+8              Numeric features                                                      4
+9                    Preprocess                                                   True
+10              Imputation type                                                 simple
+11           Numeric imputation                                                   mean
+12       Categorical imputation                                                   mode
+13               Fold Generator                                        StratifiedKFold
+14                  Fold Number                                                     10
+15                     CPU Jobs                                                     -1
+16                      Use GPU                                                  False
+17               Log Experiment                                                  False
+18              Experiment Name                                       clf-default-name
+19                          USI                                                   583d
+2023-03-12 16:20:46,365:INFO:Soft dependency imported: xgboost: 1.7.4
+2023-03-12 16:20:46,373:WARNING:
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-03-12 16:20:46,572:INFO:Soft dependency imported: xgboost: 1.7.4
+2023-03-12 16:20:46,580:WARNING:
+'catboost' is a soft dependency and not included in the pycaret installation. Please run: `pip install catboost` to install.
+Alternately, you can install this by running `pip install pycaret[models]`
+2023-03-12 16:20:46,582:INFO:setup() successfully completed in 3.19s...............
+2023-03-12 16:20:46,582:INFO:Soft dependency imported: autoviz: 0.1.58
