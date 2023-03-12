@@ -1,0 +1,21 @@
+12-03-2023 01:49:40.22 - INFO - Started validation of input parameters...
+12-03-2023 01:49:40.22 - INFO - Completed validation of input parameters
+12-03-2023 01:49:40.22 - INFO - Started handling of duplicates... Method: "AUTO"
+12-03-2023 01:49:40.22 - DEBUG - 0 missing values found
+12-03-2023 01:49:40.22 - INFO - Completed handling of duplicates in 0.001521 seconds
+12-03-2023 01:49:40.22 - INFO - Skipped handling of missing values
+12-03-2023 01:49:40.22 - INFO - Started handling of outliers... Method: "WINZ"
+12-03-2023 01:49:40.23 - DEBUG - Outlier imputation of 57 value(s) succeeded for feature "sibsp"
+12-03-2023 01:49:40.29 - DEBUG - Outlier imputation of 307 value(s) succeeded for feature "parch"
+12-03-2023 01:49:40.29 - INFO - Completed handling of outliers in 0.07625 seconds
+12-03-2023 01:49:40.29 - INFO - Started conversion of DATETIME features... Granularity: D
+12-03-2023 01:49:40.30 - INFO - Completed conversion of DATETIME features in 0.0018 seconds
+12-03-2023 01:49:40.30 - INFO - Skipped encoding of categorical features
+12-03-2023 01:49:40.30 - INFO - Started feature type conversion...
+12-03-2023 01:49:40.30 - DEBUG - Conversion to type INT succeeded for feature "pclass"
+12-03-2023 01:49:40.30 - DEBUG - Conversion to type FLOAT succeeded for feature "age"
+12-03-2023 01:49:40.30 - DEBUG - Conversion to type INT succeeded for feature "sibsp"
+12-03-2023 01:49:40.30 - DEBUG - Conversion to type INT succeeded for feature "parch"
+12-03-2023 01:49:40.30 - DEBUG - Conversion to type FLOAT succeeded for feature "fare"
+12-03-2023 01:49:40.30 - INFO - Completed feature type conversion for 5 feature(s) in 0.002572 seconds
+12-03-2023 01:49:40.30 - INFO - AutoClean process completed in 0.088086 seconds

@@ -1,13 +1,20 @@
 import streamlit as st
 import myutils as utl
-# Files to be imported from views folder for 
-from views import data_loading, unsupervised_analysis, supervised_analysis
 
-#st.set_page_config(layout="wide", page_title="Epoch Solution")
+# Files to be imported from views folder for
+from views import (
+    data_loading,
+    unsupervised_analysis,
+    supervised_analysis,
+    data_profile_report,
+)
 
-st.set_option('deprecation.showPyplotGlobalUse', False)
+# st.set_page_config(layout="wide", page_title="Epoch Solution")
+
+st.set_option("deprecation.showPyplotGlobalUse", False)
 utl.inject_custom_css()
 utl.navbar_component()
+
 
 # Main navigation function for the app
 def navigation():
@@ -18,8 +25,11 @@ def navigation():
         unsupervised_analysis.load_view()
     elif route == "supervised-analysis":
         supervised_analysis.load_view()
-    
-    st.markdown("""
+    elif route == "profile-report":
+        data_profile_report.load_view()
+
+    st.markdown(
+        """
         <style>
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
@@ -35,6 +45,9 @@ def navigation():
             padding-left: 50px;
         }
         </style>
-    """, unsafe_allow_html=True)
-        
+    """,
+        unsafe_allow_html=True,
+    )
+
+
 navigation()
