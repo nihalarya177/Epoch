@@ -51,7 +51,7 @@ def load_view():
                     div[data-testid="stVerticalBlock"] div[style*="flex-direction: column;"] div[data-testid="stVerticalBlock"] {
                         border: 1px rgba(38,39,48,255);
                         border-radius: 7px;
-                        background: rgba(38,39,48,255);
+                        background: #6c91f5;
                         padding: 50px;
                         padding-right:50px;
                     }
@@ -71,11 +71,11 @@ def load_view():
             st.subheader("Table Description")
             st.write("Automatically generated table description")
             pipe = PreprocessPipeline(uploaded_df)
-            with st.spinner("Generating auto desciption..."):
+            with st.spinner("Generating auto description..."):
                 st.session_state["pipeline"] = pipe
                 description = get_df_description(pipe.cleaned_df)
-                desc = f'<p style="fcolor:Green; font-size: 24px;">{description}</p>'
-                st.write(desc, unsafe_allow_html=True)
+                # desc = f'<p style="fcolor:Green; font-size: 24px;">{description}</p>'
+                st.text(description)
             st.subheader("Data Type Check")
             st.write("We automatically detected these as the column datatypes")
             st.write(
@@ -97,7 +97,6 @@ def load_view():
                 sorted_options = data_option + temp
                 with col1:
                     st.subheader(columns[i])
-                    st.write(" ")
                     st.write(" ")
                     st.write(" ")
                 with col2:
